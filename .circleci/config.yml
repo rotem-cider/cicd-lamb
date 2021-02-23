@@ -11,6 +11,16 @@ jobs:
           name: Check Scripts
           command: |
             /go/bin/terrascan scan -o json
+  kibit:
+    docker:
+      - image: clojure:openjdk-8
+    steps:
+      - checkout
+      - run:
+          name: Check Scripts
+          command: |
+            echo "{:user {:plugins [[lein-kibit \"0.1.8\"]]}}" > ~/.lein/profiles.clj
+            lein kibit .
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
@@ -18,3 +28,4 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - terrascan
+      - kibit
