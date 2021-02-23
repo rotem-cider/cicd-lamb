@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Check Scripts
           command: |
-            /go/bin/terrascan
+            /go/bin/terrascan scan -o json
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
