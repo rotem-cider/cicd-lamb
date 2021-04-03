@@ -2,7 +2,7 @@
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
-  terraform: 'circleci/terraform@1.2'
+  terraform: 'circleci/terraform@2.0.0'
 jobs:
   terraplan:
     executor: terraform/default
@@ -10,13 +10,8 @@ jobs:
       - checkout
       - terraform/init:
           path: .
-#      - terraform/validate:
-#          path: .
-#      - terraform/fmt:
-#          path: .
       - terraform/plan:
           path: .
-    # working_directory: ~/src
   terrascan:
     docker:
       - image: accurics/terrascan:latest
