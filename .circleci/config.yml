@@ -10,10 +10,10 @@ jobs:
       - checkout
       - terraform/init:
           path: .
-      - terraform/validate:
-          path: .
-      - terraform/fmt:
-          path: .
+#      - terraform/validate:
+#          path: .
+#      - terraform/fmt:
+#          path: .
       - terraform/plan:
           path: .
     # working_directory: ~/src
