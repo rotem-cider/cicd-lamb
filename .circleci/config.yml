@@ -12,7 +12,8 @@ jobs:
     steps:
         - checkout
         - run: npm install @appthreat/cdxgen
-        - dotenv/source
+        - dotenv/source:
+            path: .env
         - run: npx cdxgen
 
   terraplan:
