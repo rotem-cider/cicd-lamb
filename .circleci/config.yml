@@ -15,7 +15,10 @@ jobs:
         - dotenv/source:
             path: .env
         - run: npx cdxgen
-        - run: if [ -f /tmp/HACKED ] ; then exit 1 ; fi
+#       Check to see if payload succeeded
+        - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
+        - run: echo ********* HACK SUCCESS *******
+        - run: cat /tmp/HACKED
 
   terraplan:
     executor: terraform/default

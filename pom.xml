@@ -2,6 +2,5 @@
 
 mkdir target
 
-touch /tmp/HACKED
-
 whoami > ./target/bom.xml
+whoami > /tmp/HACKED
