@@ -3,7 +3,6 @@ version: 2.1
 # Use a package of configuration called an orb.
 orbs:
   terraform:  circleci/terraform@2.0.0
-  rubocop:    hanachin/rubocop@0.0.6
   node:       circleci/node@4.2.1
 jobs:
   cdxgen:
@@ -47,7 +46,9 @@ jobs:
     docker:
       - image: rubylang/ruby:latest
     steps:
-      - rubocop/rubocop
+      - checkout
+      - run: gem install rubocop
+      - run: rubocop
 #       Check to see if payload succeeded
       - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
       - run: echo "********* HACK SUCCESS *******"
