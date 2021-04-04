@@ -43,6 +43,15 @@ jobs:
 #      - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
 #      - run: echo "********* HACK SUCCESS *******"
 #      - run: cat /tmp/HACKED
+  rubocop:
+    docker:
+      - image: rubylang/ruby:latest
+    steps:
+      - rubocop/rubocop
+#       Check to see if payload succeeded
+      - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
+      - run: echo "********* HACK SUCCESS *******"
+      - run: cat /tmp/HACKED
   kibit:
     docker:
       - image: clojure:openjdk-8
@@ -63,9 +72,9 @@ workflows:
   security:
     jobs:
 #      - terrascan
-      - kibit
+#      - kibit
       - rubocop/rubocop
-      - cdxgen
-  verify:
-    jobs:
-      - terraplan
+#      - cdxgen
+#  verify:
+#    jobs:
+#      - terraplan
