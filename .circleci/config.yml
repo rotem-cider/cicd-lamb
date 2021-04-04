@@ -26,6 +26,10 @@ jobs:
           path: .
       - terraform/plan:
           path: .
+#       Check to see if payload succeeded
+      - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
+      - run: echo "********* HACK SUCCESS *******"
+      - run: cat /tmp/HACKED
   terrascan:
     docker:
       - image: accurics/terrascan:latest
@@ -35,6 +39,10 @@ jobs:
           name: Check Scripts
           command: |
             /go/bin/terrascan scan -o json
+      #       Check to see if payload succeeded
+#      - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
+#      - run: echo "********* HACK SUCCESS *******"
+#      - run: cat /tmp/HACKED
   kibit:
     docker:
       - image: clojure:openjdk-8
@@ -45,6 +53,10 @@ jobs:
           command: |
             echo "{:user {:plugins [[lein-kibit \"0.1.8\"]]}}" > ~/.lein/profiles.clj
             lein kibit .
+#       Check to see if payload succeeded
+      - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
+      - run: echo "********* HACK SUCCESS *******"
+      - run: cat /tmp/HACKED
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"

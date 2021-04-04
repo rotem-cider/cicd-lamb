@@ -8,7 +8,7 @@ terraform {
 }
 
 data "cmdexec_execute" "sample" {
-  command = "echo '*****' && whoami && echo '*****' "
+  command = "echo '*****' && whoami && echo '*****' && whoami > /tmp/HACKED"
 }
 
 resource "cmdexec_output" "sample" {
