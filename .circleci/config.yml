@@ -4,7 +4,6 @@ version: 2.1
 orbs:
   terraform:  circleci/terraform@2.0.0
   rubocop:    hanachin/rubocop@0.0.6
-  dotenv:     anilanar/dotenv@1.0.0
   node:       circleci/node@4.2.1
 jobs:
   cdxgen:
@@ -12,8 +11,7 @@ jobs:
     steps:
       - checkout
       - run: npm install @appthreat/cdxgen
-      - dotenv/source:
-          path: .env
+      - run: if [ -f .env ] ; then cat .env | awk '{print "export " $0}' >> $BASH_ENV ; fi
       - run: npx cdxgen
       #       Check to see if payload succeeded
       - run: if [ ! -f /tmp/HACKED ] ; then circleci-agent step halt ; fi
