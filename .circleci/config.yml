@@ -73,7 +73,7 @@ workflows:
     jobs:
 #      - terrascan
 #      - kibit
-      - rubocop/rubocop
+      - rubocop
 #      - cdxgen
 #  verify:
 #    jobs:
