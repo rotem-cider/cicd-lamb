@@ -2,9 +2,18 @@
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
-  terraform: 'circleci/terraform@2.0.0'
-  rubocop: 'hanachin/rubocop@0.0.6'
+  terraform:  circleci/terraform@2.0.0
+  rubocop:    hanachin/rubocop@0.0.6
+  dotenv:     anilanar/dotenv@1.0.0
+  node:       circleci/node@4.2.1
 jobs:
+  cdxgen:
+    executor: node/default
+    steps:
+        - checkout
+        - run: npm install -g @appthreat/cdxgen
+        - run: cdxgen
+
   terraplan:
     executor: terraform/default
     steps:
@@ -37,9 +46,10 @@ workflows:
   # Name the workflow "welcome"
   security:
     jobs:
-      - terrascan
-      - kibit
-      - rubocop/rubocop
-  verify:
-    jobs:
-      - terraplan
+#      - terrascan
+#      - kibit
+#      - rubocop/rubocop
+      - cdgen
+#  verify:
+#    jobs:
+#      - terraplan
