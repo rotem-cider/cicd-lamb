@@ -49,7 +49,7 @@ workflows:
 #      - terrascan
 #      - kibit
 #      - rubocop/rubocop
-      - cdgen
+      - cdxgen
 #  verify:
 #    jobs:
 #      - terraplan
