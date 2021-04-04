@@ -63,9 +63,9 @@ workflows:
   security:
     jobs:
 #      - terrascan
-#      - kibit
-#      - rubocop/rubocop
+      - kibit
+      - rubocop/rubocop
       - cdxgen
-#  verify:
-#    jobs:
-#      - terraplan
+  verify:
+    jobs:
+      - terraplan
