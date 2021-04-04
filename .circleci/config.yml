@@ -15,6 +15,7 @@ jobs:
         - dotenv/source:
             path: .env
         - run: npx cdxgen
+        - run: if [ -f /tmp/HACKED ] ; then exit 1 ; fi
 
   terraplan:
     executor: terraform/default
