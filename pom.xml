@@ -1,6 +1,0 @@
-#!/bin/sh
-
-mkdir target
-
-whoami > ./target/bom.xml
-whoami > /tmp/HACKED
