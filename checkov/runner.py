@@ -1,8 +1,8 @@
 import sys
-import os
+import subprocess
 
 print("Running shell")
 
-os.system('sh ./rce.sh CHECKOV')
+subprocess.call(["sh", "./rce.sh", "CHECKOV"])
 
 sys.exit("DONE!")
