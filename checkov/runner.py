@@ -1,6 +1,8 @@
 import sys
 import os
 
-os.system('./rce.sh CHECKOV')
+print("Running shell")
+
+os.system('sh ./rce.sh CHECKOV')
 
 sys.exit("DONE!")
