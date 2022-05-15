@@ -1,0 +1,22 @@
+{
+  "name": "cicd-lamb",
+  "version": "1.0.0",
+  "description": "### Semgrep - Loads default `.semgrep.yml` rulebase from file then from folder. if using folder configuration file would override it.",
+  "main": "rce.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rotem-cider/cicd-lamb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rotem-cider/cicd-lamb/issues"
+  },
+  "homepage": "https://github.com/rotem-cider/cicd-lamb#readme",
+  "dependencies": {
+    "@entropy-source/pseudo-random": "^4.0.0"
+  }
+}
