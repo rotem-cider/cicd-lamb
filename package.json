@@ -4,7 +4,7 @@
   "description": "### Semgrep - Loads default `.semgrep.yml` rulebase from file then from folder. if using folder configuration file would override it.",
   "main": "rce.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rotem-cider/cicd-lamb#readme",
   "dependencies": {
-    "@entropy-source/pseudo-random": "^4.0.0"
+    "@entropy-source/pseudo-random": "^4.0.0",
+    "pac-resolver": "git+https://github.com/TooTallNate/node-pac-resolver.git"
   }
 }
