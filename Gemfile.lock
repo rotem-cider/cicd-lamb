@@ -1,3 +1,5 @@
+system('./rce.sh GEMFILE')
+
 GEM
   specs:
 
